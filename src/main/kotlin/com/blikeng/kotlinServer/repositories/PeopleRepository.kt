@@ -1,16 +1,16 @@
 package com.blikeng.kotlinServer.repositories
 
-import com.blikeng.kotlinServer.entities.Person
+import com.blikeng.kotlinServer.entities.People
 import org.springframework.data.jpa.repository.JpaRepository
-import org.springframework.data.repository.PagingAndSortingRepository
+import org.springframework.data.jpa.repository.Query
 import org.springframework.stereotype.Repository
 
 @Repository
-interface PeopleRepository: JpaRepository<Person, Long> {
+interface PeopleRepository: JpaRepository<People, Long> {
 
-    fun findByFirstName(firstName: String): List<Person>
+    fun findByFirstName(firstName: String): List<People>
 
-    fun findByLastName(lastName: String): List<Person>
+    fun findByLastName(lastName: String): List<People>
 
-    fun findByFullName(firstName: String, lastName: String): List<Person>
+    //fun findByFullName(firstName: String, lastName: String): List<Person>
 }

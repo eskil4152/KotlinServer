@@ -8,7 +8,7 @@ import jakarta.persistence.Id
 import jakarta.persistence.SequenceGenerator
 
 @Entity
-class Person (
+class People (
         @Id
         @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_generator")
         @SequenceGenerator(
@@ -18,10 +18,10 @@ class Person (
         @Column(name = "id")
         val id: Long,
 
-        @Column(name = "firstName")
+        @Column(name = "firstname")
         val firstName: String,
 
-        @Column(name = "lastName")
+        @Column(name = "lastname")
         val lastName: String,
 
         @Column(name = "age")
