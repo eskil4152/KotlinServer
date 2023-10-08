@@ -7,7 +7,7 @@ target/
 mvnw.*
 mvnw
 
-
+.env
 
 ### STS ###
 .apt_generated
