@@ -6,8 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.ResponseBody
 import org.springframework.web.bind.annotation.RestController
+import kotlin.math.log
 
 @RestController
 @RequestMapping("/api/people")
@@ -15,21 +19,47 @@ class PeopleController(@Autowired private val peopleService: PeopleService) {
 
     @GetMapping("/all")
     fun findAll(): ResponseEntity<List<People>> {
-        return ResponseEntity.ok(peopleService.getAllPeople().toList())
+        return ResponseEntity.ok(peopleService.getAllPeople())
     }
 
-    @GetMapping("/search/first/{firstName}")
-    fun findByFirstName(@PathVariable firstName: String): ResponseEntity<List<People>> {
-        return ResponseEntity.ok(peopleService.getPeopleByFirstName(firstName))
+    @PostMapping("/search/first")
+    fun findByFirstName(@RequestBody request: FirstNameRequest): ResponseEntity<List<People>> {
+        val firstName = request.firstName
+
+        val result = peopleService.getPeopleByFirstName(firstName)
+
+        if (result.isEmpty())
+            return ResponseEntity.notFound().build()
+
+        return ResponseEntity.ok(result)
     }
 
-    @GetMapping("/search/last/{lastName}")
-    fun findByLastName(@PathVariable lastName: String): ResponseEntity<List<People>> {
-        return ResponseEntity.ok(peopleService.getPeopleByLastName(lastName))
+    @PostMapping("/search/last")
+    fun findByLastName(@RequestBody request: LastNameRequest): ResponseEntity<List<People>> {
+        val lastName = request.lastName
+
+        val result = peopleService.getPeopleByLastName(lastName)
+
+        if (result.isEmpty())
+            return ResponseEntity.notFound().build()
+
+        return ResponseEntity.ok(result)
     }
 
-    /*@GetMapping("/search/full/{firstName}/{lastName}")
-    fun getByFullName(@PathVariable firstName: String, lastName: String): ResponseEntity<List<Person>> {
-        return ResponseEntity.ok(peopleService.getPersonByFullName(firstName, lastName))
-    }*/
+    @PostMapping("/search/full")
+    fun getByFullName(@RequestBody request: FullNameRequest): ResponseEntity<List<People>> {
+        val firstName = request.firstName
+        val lastName = request.lastName
+
+        val result = peopleService.getPersonByFullName(firstName, lastName)
+
+        if (result.isEmpty())
+            return ResponseEntity.notFound().build()
+
+        return ResponseEntity.ok(result)
+    }
 }
+
+data class FirstNameRequest(val firstName: String)
+data class LastNameRequest(val lastName: String)
+data class FullNameRequest(val firstName: String, val lastName: String)

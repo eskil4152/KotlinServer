@@ -12,5 +12,5 @@ interface PeopleRepository: JpaRepository<People, Long> {
 
     fun findByLastName(lastName: String): List<People>
 
-    //fun findByFullName(firstName: String, lastName: String): List<Person>
+    fun findByFirstNameAndLastName(firstName: String, lastName: String): List<People>
 }

@@ -20,7 +20,7 @@ class PeopleService(@Autowired private val peopleRepository: PeopleRepository) {
         return peopleRepository.findByLastName(lastName)
     }
 
-    /*fun getPersonByFullName(firstName: String, lastName: String): List<Person> {
-        return peopleRepository.findByFullName(firstName, lastName)
-    }*/
+    fun getPersonByFullName(firstName: String, lastName: String): List<People> {
+        return peopleRepository.findByFirstNameAndLastName(firstName, lastName)
+    }
 }
