@@ -8,7 +8,7 @@ Currently fetches all and by parameters from PostgreSQL database.
 - [x] Make user entity and roles
       
 - [x] Make functioning API
-- [ ] Add 'New Person' API
+- [x] Add 'New Person' API
 - [ ] Add 'Alter Person' API
 - [ ] Make tests for APIs
 
