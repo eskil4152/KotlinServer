@@ -3,8 +3,8 @@ spring:
     import: optional:file:.env[.properties]
   datasource:
     username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
-    url: jdbc:postgresql://localhost:5433/eskil
+    password: ${AZURE_PASSWORD}
+    url: jdbc:postgresql://eskil4152psql.postgres.database.azure.com/eskil
   jpa:
     properties:
       hibernate:

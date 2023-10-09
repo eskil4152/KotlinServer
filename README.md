@@ -13,7 +13,7 @@ Currently fetches all and by parameters from PostgreSQL database.
 - [ ] Add 'Remove Person' API
 - [ ] Make tests for APIs
 
-- [ ] Move database to Azure
+- [x] Move database to Azure
 
 - [ ] Add login with username and password
 - [ ] Add login with Google and/or Microsoft
