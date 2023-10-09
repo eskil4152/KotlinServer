@@ -25,4 +25,6 @@ Currently fetches all and by parameters from PostgreSQL database.
 
 - [ ] Host application on Azure
 
+- [ ] Add caching
+
 - [ ] More functionality

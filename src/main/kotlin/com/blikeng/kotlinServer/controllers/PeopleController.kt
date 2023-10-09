@@ -53,13 +53,8 @@ class PeopleController(@Autowired private val peopleService: PeopleService) {
     }
 
     @PostMapping("/new")
-    fun addNewPerson(@RequestBody people: People): ResponseEntity<List<People>> {
-        val result = peopleService.addPerson(people)
-
-        if (result.isEmpty())
-            return ResponseEntity.notFound().build()
-
-        return ResponseEntity.ok(result)
+    fun addNewPerson(@RequestBody people: People): ResponseEntity<People> {
+        return ResponseEntity.ok(peopleService.addPerson(people))
     }
 }
 

@@ -24,7 +24,7 @@ class PeopleService(@Autowired private val peopleRepository: PeopleRepository) {
         return peopleRepository.findByFirstNameAndLastName(firstName, lastName)
     }
 
-    fun addPerson(person: People): List<People> {
+    fun addPerson(person: People): People {
         return peopleRepository.save(person)
     }
 }
