@@ -1,4 +1,4 @@
-package com.blikeng.kotlinServer.services;
+package com.blikeng.kotlinServer.services
 
 import com.blikeng.kotlinServer.entities.People
 import com.blikeng.kotlinServer.repositories.PeopleRepository

@@ -10,6 +10,7 @@ Currently fetches all and by parameters from PostgreSQL database.
 - [x] Make functioning API
 - [x] Add 'New Person' API
 - [ ] Add 'Alter Person' API
+- [ ] Add 'Remove Person' API
 - [ ] Make tests for APIs
 
 - [ ] Move database to Azure
