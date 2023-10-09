@@ -12,4 +12,6 @@ interface PeopleRepository: JpaRepository<People, Long> {
     fun findByLastName(lastName: String): List<People>
 
     fun findByFirstNameAndLastName(firstName: String, lastName: String): List<People>
+
+    fun findPeopleById(id: Long): People?
 }

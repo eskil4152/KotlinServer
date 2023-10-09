@@ -52,12 +52,33 @@ class PeopleController(@Autowired private val peopleService: PeopleService) {
         return ResponseEntity.ok(result)
     }
 
+    @PostMapping("/search/id")
+    fun findById(@RequestBody request: IdRequest): ResponseEntity<People> {
+        val id = request.id.toLong()
+
+        val result = peopleService.getPersonById(id)
+
+        if (result === null)
+            return ResponseEntity.notFound().build()
+
+        return ResponseEntity.ok(result)
+    }
+
     @PostMapping("/new")
     fun addNewPerson(@RequestBody people: People): ResponseEntity<People> {
         return ResponseEntity.ok(peopleService.addPerson(people))
+    }
+
+    @DeleteMapping("/delete")
+    fun deletePerson(@RequestBody request: IdRequest): ResponseEntity<Any> {
+        val id = request.id.toLong()
+        peopleService.deletePerson(id)
+
+        return ResponseEntity.noContent().build()
     }
 }
 
 data class FirstNameRequest(val firstName: String)
 data class LastNameRequest(val lastName: String)
+data class IdRequest(val id: String)
 data class FullNameRequest(val firstName: String, val lastName: String)

@@ -24,7 +24,15 @@ class PeopleService(@Autowired private val peopleRepository: PeopleRepository) {
         return peopleRepository.findByFirstNameAndLastName(firstName, lastName)
     }
 
+    fun getPersonById(id: Long): People? {
+        return peopleRepository.findPeopleById(id)
+    }
+
     fun addPerson(person: People): People {
         return peopleRepository.save(person)
+    }
+
+    fun deletePerson(id: Long) {
+        return peopleRepository.deleteById(id)
     }
 }
