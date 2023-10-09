@@ -10,14 +10,18 @@ Currently fetches all and by parameters from PostgreSQL database.
 - [x] Make functioning API
 - [ ] Add 'New Person' API
 - [ ] Add 'Alter Person' API
-      
+- [ ] Make tests for APIs
+
 - [ ] Move database to Azure
 
 - [ ] Add login with username and password
 - [ ] Add login with Google and/or Microsoft
+- [ ] Make tests for login
+
 - [ ] Add authentication when users log in
-- [ ] Add authorization for various API's
-      
+- [ ] Add authorization for various APIs
+- [ ] Make tests for authentication and authorization
+
 - [ ] Host application on Azure
 
 - [ ] More functionality
