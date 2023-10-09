@@ -1,7 +1,13 @@
-# KotlinServer
+# Kotlin Springboot Server
 
-Simple REST API written in Kotlin, with Spring Boot.
-Currently fetches all and by parameters from PostgreSQL database.
+Simple REST API written in Kotlin, with Spring Boot. Fetches from PostgreSQL database hosted on Azure.
+
+Fetches all from database.
+
+Fetches by id, firstname or lastname from database.
+
+Can add and delete person.
+
 
 ## Todo
 - [x] Make repo, service, controller and entity
@@ -10,7 +16,7 @@ Currently fetches all and by parameters from PostgreSQL database.
 - [x] Make functioning API
 - [x] Add 'New Person' API
 - [ ] Add 'Alter Person' API
-- [ ] Add 'Remove Person' API
+- [x] Add 'Remove Person' API
 - [ ] Make tests for APIs
 
 - [x] Move database to Azure
